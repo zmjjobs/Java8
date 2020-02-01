@@ -1,7 +1,7 @@
 package com.isoftstone.interfaces;
 
 @FunctionalInterface
-public interface MyPredicate<T> {
+public interface MyCalculate {
 	//@FunctionalInterface修饰的类，只能有一个抽象方法
-	public boolean test(T t);
+	public double calculate(double a,double b);
 }
