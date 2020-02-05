@@ -10,7 +10,10 @@ public class Employee {
 	public Employee(int id) {
 		this.id = id;
 	}
-	
+	public Employee(int id, int age) {
+		this.id = id;
+		this.age = age;
+	}
 	public Employee(String name, int age, double salary) {
 		this.name = name;
 		this.age = age;
