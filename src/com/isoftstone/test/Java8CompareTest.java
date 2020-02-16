@@ -2,12 +2,8 @@ package com.isoftstone.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.TreeSet;
-
 import org.junit.Test;
-
 import com.isoftstone.bean.Employee;
 import com.isoftstone.interfaces.FilterEmpByAge;
 import com.isoftstone.interfaces.FilterEmpBySalary;
