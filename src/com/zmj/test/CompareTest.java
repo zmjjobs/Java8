@@ -3,14 +3,13 @@ package com.zmj.test;
 import com.zmj.bean.Employee;
 import com.zmj.interfaces.FilterEmpByAge;
 import com.zmj.interfaces.FilterEmpBySalary;
-import com.zmj.interfaces.MyPredicate;
+import com.zmj.interfaces.base.BaseCompare;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 //需求：根据条件过滤员工信息
-public class Java8CompareTest {
+public class CompareTest {
 
 	List<Employee> emps = Arrays.asList(
 			new Employee("张三",18,3333.5),
@@ -20,10 +19,10 @@ public class Java8CompareTest {
 			new Employee("田七",78,7777.5)
 	);
 
-	public List<Employee> filterEmployee(List<Employee> emps,MyPredicate<Employee> mp) {
+	public List<Employee> filterEmployee(List<Employee> emps, BaseCompare<Employee> mp) {
 		List<Employee> empList = new ArrayList<>();
 		for (Employee employee : emps) {
-			if (mp.test(employee)) {
+			if (mp.compare(employee)) {
 				empList.add(employee);
 			}
 		}
@@ -51,9 +50,9 @@ public class Java8CompareTest {
 	 */
 	@Test
 	public void testFilter2(){
-		List<Employee> filterEmployee = filterEmployee(emps,new MyPredicate<Employee>() {
+		List<Employee> filterEmployee = filterEmployee(emps,new BaseCompare<Employee>() {
 			@Override
-			public boolean test(Employee t) {
+			public boolean compare(Employee t) {
 				return t.getAge() > 30;
 			}
 		});
@@ -61,9 +60,9 @@ public class Java8CompareTest {
 			System.out.println(employee);
 		}
 		System.out.println("******************");
-		filterEmployee = filterEmployee(emps,new MyPredicate<Employee>() {
+		filterEmployee = filterEmployee(emps,new BaseCompare<Employee>() {
 			@Override
-			public boolean test(Employee t) {
+			public boolean compare(Employee t) {
 				return t.getSalary() > 3000;
 			}
 		});

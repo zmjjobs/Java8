@@ -1,7 +1,7 @@
-package com.zmj.interfaces;
+package com.zmj.interfaces.base;
 
 @FunctionalInterface
-public interface MyPredicate<T> {
+public interface BaseCompare<T> {
 	//@FunctionalInterface修饰的类，只能有一个抽象方法
-	public boolean test(T t);
+	boolean compare(T t);
 }
